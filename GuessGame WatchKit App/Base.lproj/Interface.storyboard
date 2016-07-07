@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="10032"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="GuessGame_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <label alignment="center" verticalAlignment="center" text="Your guess:3" textAlignment="center" minimumScaleFactor="0.0" id="N4A-Un-iGW">
+                            <fontDescription key="font" type="system" pointSize="16"/>
+                        </label>
+                        <button width="1" height="40" alignment="center" verticalAlignment="bottom" title="Guess" id="MON-cT-LEy">
+                            <connections>
+                                <action selector="startGuess" destination="AgC-eL-Hgc" id="i0Z-yg-GAE"/>
+                            </connections>
+                        </button>
+                        <label alignment="center" verticalAlignment="bottom" text="Press &quot;Guess&quot; to start game" textAlignment="center" numberOfLines="0" minimumScaleFactor="0.10000000000000001" id="hK6-oc-9fR"/>
+                        <slider alignment="left" value="0.59999999999999998" steps="5" id="uCN-gg-8JO">
+                            <color key="color" red="0.19467623914998811" green="0.96942842350587466" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="updateGuess:" destination="AgC-eL-Hgc" id="5gk-dx-Jfp"/>
+                            </connections>
+                        </slider>
+                    </items>
+                    <connections>
+                        <outlet property="guessLabel" destination="N4A-Un-iGW" id="kFn-zM-fp6"/>
+                        <outlet property="guessSlider" destination="uCN-gg-8JO" id="YuY-gS-3OY"/>
+                        <outlet property="resultLabel" destination="hK6-oc-9fR" id="Af2-hF-qzl"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="275.5"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="GuessGame_WatchKit_App" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+    </scenes>
+</document>
